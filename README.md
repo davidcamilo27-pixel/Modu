@@ -80,12 +80,60 @@ versão, cobrindo:
 Resultado: **19/19 testes aprovados**, sem erros de JavaScript em
 nenhum cenário testado.
 
+## Ajustes feitos nesta versão
+
+- Ícones dos produtos redimensionados (antes ficavam desproporcionalmente
+  grandes em telas largas); agora têm um tamanho máximo travado.
+- Imagem principal da página de produto limitada a 420px de largura
+  máxima, para não ficar gigante em monitores largos.
+- Abas "Descrição / Características / Personalização / ..." agora
+  quebram linha normalmente em vez de exigir scroll horizontal.
+- Campo de cor virou texto livre (o cliente digita a cor desejada,
+  em vez de escolher de uma paleta fixa).
+- Upload de logo agora valida no navegador: apenas arquivos de imagem
+  (PNG, JPG, WEBP, SVG, GIF) e até 5MB — arquivos fora disso são
+  recusados com uma mensagem de erro antes mesmo de serem anexados
+  ao pedido.
+
 ## Antes de publicar
 
 1. Abra `js/data.js` e troque `WHATSAPP_NUMBER` pelo número real.
 2. Revise o array `PRODUCTS` com os produtos, preços e mínimos reais.
 3. Ajuste e-mail e horário de atendimento em `index.html` (seções de
    Contato e rodapé).
+
+## Publicar no GitHub (e hospedar de graça com GitHub Pages)
+
+Como este site é 100% estático (sem backend), o GitHub Pages é a forma
+mais simples e gratuita de colocá-lo no ar — ele serve exatamente esse
+tipo de site.
+
+**1. Criar o repositório**
+No GitHub, clique em "New repository", dê um nome (ex.: `modu-site`)
+e deixe vazio (sem README, sem .gitignore — já tem aqui).
+
+**2. Subir os arquivos** (com git instalado, dentro desta pasta):
+```bash
+git init
+git add .
+git commit -m "Primeira versão da loja MODU"
+git branch -M main
+git remote add origin https://github.com/SEU-USUARIO/modu-site.git
+git push -u origin main
+```
+Não tem terminal/git instalado? No GitHub Desktop (interface gráfica)
+dá pra fazer os mesmos passos clicando: "Add local repository" →
+selecionar esta pasta → "Publish repository".
+
+**3. Ativar o GitHub Pages**
+No repositório, vá em Settings → Pages → em "Branch" escolha `main`
+e pasta `/ (root)` → Save. Em alguns minutos o site fica no ar em
+`https://SEU-USUARIO.github.io/modu-site/`.
+
+**4. Domínio próprio (opcional)**
+Se a MODU tiver um domínio (ex. `modu.com.br`), dá pra apontar ele
+para o GitHub Pages nas configurações de DNS — o próprio GitHub
+mostra o passo a passo em Settings → Pages → Custom domain.
 
 ## Se um dia precisar de um backend de verdade
 

@@ -31,7 +31,7 @@ function store() {
     sortBy: 'relevance',
 
     // product config (per active product view)
-    config: { qty: 20, color: '', customText: '', logoFile: '', notes: '' },
+    config: { qty: 20, color: '', customText: '', logoFile: '', logoError: '', notes: '' },
 
     // cart
     cart: [],
@@ -78,7 +78,7 @@ function store() {
 
     openProduct(p) {
       this.activeProductSlug = p.slug;
-      this.config = { qty: p.minQty, color: p.colors?.[0]?.name || '', customText: '', logoFile: '', notes: '' };
+      this.config = { qty: p.minQty, color: '', customText: '', logoFile: '', logoError: '', notes: '' };
       this.activeTab = 0;
       this.page = 'product';
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -90,7 +90,7 @@ function store() {
       const p = this.products.find(pr => pr.slug === slug);
       if (!p) { this.page = 'products'; return; }
       this.activeProductSlug = slug;
-      if (!this.config.qty) this.config = { qty: p.minQty, color: p.colors?.[0]?.name || '', customText: '', logoFile: '', notes: '' };
+      if (!this.config.qty) this.config = { qty: p.minQty, color: '', customText: '', logoFile: '', logoError: '', notes: '' };
       this.page = 'product';
     },
 
@@ -151,7 +151,38 @@ function store() {
 
     quickAdd(id) {
       const p = this.products.find(pr => pr.id === id);
-      if (p) this.addToCart(p, { qty: p.minQty, color: p.colors?.[0]?.name || '', customText: '', notes: '' });
+      if (p) this.addToCart(p, { qty: p.minQty, color: '', customText: '', notes: '' });
+    },
+
+    handleLogoUpload(event) {
+      const input = event.target;
+      const file = input.files && input.files[0];
+      if (!file) { return; }
+
+      const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+      const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml', 'image/gif'];
+
+      // Validação por tipo MIME real do arquivo (não pela extensão do nome,
+      // que pode ser forjada) — evita que arquivos que não sejam imagem
+      // sejam anexados ao pedido.
+      if (!ALLOWED_TYPES.includes(file.type)) {
+        this.config.logoFile = '';
+        this.config.logoError = 'Envie apenas arquivos de imagem (PNG, JPG, WEBP, SVG ou GIF).';
+        this.showToast('Arquivo inválido: envie apenas imagens.');
+        input.value = '';
+        return;
+      }
+
+      if (file.size > MAX_SIZE) {
+        this.config.logoFile = '';
+        this.config.logoError = 'O arquivo deve ter no máximo 5MB.';
+        this.showToast('Arquivo maior que 5MB.');
+        input.value = '';
+        return;
+      }
+
+      this.config.logoError = '';
+      this.config.logoFile = file.name;
     },
 
     addToCart(p, cfg) {

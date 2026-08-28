@@ -6,7 +6,7 @@
 // ======================================================
 // CONFIGURAÇÃO CENTRAL — altere aqui o número do WhatsApp
 // ======================================================
-const WHATSAPP_NUMBER = "5583921476208"; // formato: DDI+DDD+numero, apenas dígitos
+const WHATSAPP_NUMBER = "5511999999999"; // formato: DDI+DDD+numero, apenas dígitos
 
 // Ícones (SVG inline, sem dependência externa) reaproveitados nos cards de produto
 const ICONS = {
@@ -26,33 +26,24 @@ const CATEGORIES = [
   { id: "lancamentos", name: "Lançamentos", desc: "Novidades da temporada", icon: ICONS.sparkle }
 ];
 
-const COLOR_SETS = {
-  basic: [
-    { name: "Preto", hex: "#131312" },
-    { name: "Branco", hex: "#f4f4f4" },
-    { name: "Azul-marinho", hex: "#183d5e" }
-  ],
-  vivid: [
-    { name: "Preto", hex: "#131312" },
-    { name: "Vermelho", hex: "#b0392f" },
-    { name: "Verde", hex: "#3c6e47" },
-    { name: "Azul-marinho", hex: "#183d5e" }
-  ]
+const COLOR_SUGGESTIONS = {
+  basic: "Preto, Branco, Azul-marinho",
+  vivid: "Preto, Vermelho, Verde, Azul-marinho"
 };
 
 const PRODUCTS = [
-  { id: 1, slug: "chaveiro-logo-classico", name: "Chaveiro Logo Clássico", category: "chaveiros", price: 6.9, minQty: 20, badge: "Mais vendido", featured: true, isNew: false, icon: ICONS.keychain, tint: "#e8eef3", colors: COLOR_SETS.basic, desc: "Chaveiro em 3D com o logotipo da sua marca em relevo, acabamento fosco e alta resistência ao uso diário." },
-  { id: 2, slug: "kit-chaveiro-personalizado", name: "Kit Chaveiro Personalizado", category: "kits", price: 6.9, minQty: 20, badge: "Oferta", featured: true, isNew: false, icon: ICONS.box, tint: "#eef2ea", colors: COLOR_SETS.vivid, desc: "Kit com chaveiros variados para campanhas de fidelização, ideal para lojas que querem aumentar o ticket médio." },
-  { id: 3, slug: "chaveiro-colecionavel-edicao-limitada", name: "Chaveiro Colecionável — Edição Limitada", category: "lancamentos", price: 9.9, minQty: 10, badge: "Lançamento", featured: true, isNew: true, icon: ICONS.medal, tint: "#f3ece7", colors: COLOR_SETS.basic, desc: "Peça exclusiva para campanhas do tipo 'Método das 100 Primeiras', pensada para gerar urgência e engajamento." },
-  { id: 4, slug: "brinde-corporativo-premium", name: "Brinde Corporativo Premium", category: "corporativo", price: 14.9, minQty: 50, badge: "", featured: true, isNew: false, icon: ICONS.building, tint: "#e8eef3", colors: COLOR_SETS.basic, desc: "Acessório personalizado para eventos e ações corporativas, com acabamento premium e embalagem individual." },
-  { id: 5, slug: "chaveiro-mini-tag", name: "Chaveiro Mini Tag", category: "chaveiros", price: 5.5, minQty: 20, badge: "Novo", featured: false, isNew: true, icon: ICONS.tag, tint: "#eef2ea", colors: COLOR_SETS.basic, desc: "Formato compacto e leve, perfeito para gravação de nome ou iniciais do cliente." },
-  { id: 6, slug: "kit-boas-vindas", name: "Kit Boas-Vindas", category: "kits", price: 18.9, minQty: 15, badge: "Novo", featured: false, isNew: true, icon: ICONS.sparkle, tint: "#f3ece7", colors: COLOR_SETS.vivid, desc: "Conjunto de brindes para recepcionar novos clientes ou colaboradores com a cara da sua marca." },
-  { id: 7, slug: "chaveiro-fitness-personalizado", name: "Chaveiro Fitness Personalizado", category: "chaveiros", price: 6.9, minQty: 20, badge: "Mais vendido", featured: false, isNew: false, icon: ICONS.keychain, tint: "#e8eef3", colors: COLOR_SETS.vivid, desc: "Desenvolvido para academias e lojas do segmento fitness, reforça a lembrança da marca a cada treino." },
-  { id: 8, slug: "brinde-personalizado-evento", name: "Brinde Personalizado para Evento", category: "brindes", price: 8.5, minQty: 30, badge: "", featured: false, isNew: false, icon: ICONS.tag, tint: "#eef2ea", colors: COLOR_SETS.basic, desc: "Produzido sob demanda para feiras, lançamentos e ativações de marca." },
-  { id: 9, slug: "chaveiro-nome-gravado", name: "Chaveiro com Nome Gravado", category: "chaveiros", price: 7.5, minQty: 10, badge: "", featured: false, isNew: false, icon: ICONS.keychain, tint: "#f3ece7", colors: COLOR_SETS.basic, desc: "Gravação individual do nome do cliente — ótimo para ações de fidelização ponto a ponto." },
-  { id: 10, slug: "kit-corporativo-volume", name: "Kit Corporativo Volume", category: "corporativo", price: 12.9, minQty: 100, badge: "Oferta", featured: false, isNew: false, icon: ICONS.building, tint: "#e8eef3", colors: COLOR_SETS.basic, desc: "Ideal para grandes volumes corporativos, com preço reduzido por unidade a partir de 100 peças." },
-  { id: 11, slug: "chaveiro-edicao-verao", name: "Chaveiro Edição Verão", category: "lancamentos", price: 8.9, minQty: 20, badge: "Lançamento", featured: false, isNew: true, icon: ICONS.sparkle, tint: "#eef2ea", colors: COLOR_SETS.vivid, desc: "Nova coleção sazonal com cores exclusivas, disponível por tempo limitado." },
-  { id: 12, slug: "brinde-colecionavel-fidelidade", name: "Brinde Colecionável Fidelidade", category: "brindes", price: 9.5, minQty: 20, badge: "Mais vendido", featured: false, isNew: false, icon: ICONS.medal, tint: "#f3ece7", colors: COLOR_SETS.basic, desc: "Peça pensada para programas de fidelidade — o cliente coleciona, a marca fideliza." }
+  { id: 1, slug: "chaveiro-logo-classico", name: "Chaveiro Logo Clássico", category: "chaveiros", price: 6.9, minQty: 20, badge: "Mais vendido", featured: true, isNew: false, icon: ICONS.keychain, tint: "#e8eef3", colorSuggestions: COLOR_SUGGESTIONS.basic, desc: "Chaveiro em 3D com o logotipo da sua marca em relevo, acabamento fosco e alta resistência ao uso diário." },
+  { id: 2, slug: "kit-chaveiro-personalizado", name: "Kit Chaveiro Personalizado", category: "kits", price: 6.9, minQty: 20, badge: "Oferta", featured: true, isNew: false, icon: ICONS.box, tint: "#eef2ea", colorSuggestions: COLOR_SUGGESTIONS.vivid, desc: "Kit com chaveiros variados para campanhas de fidelização, ideal para lojas que querem aumentar o ticket médio." },
+  { id: 3, slug: "chaveiro-colecionavel-edicao-limitada", name: "Chaveiro Colecionável — Edição Limitada", category: "lancamentos", price: 9.9, minQty: 10, badge: "Lançamento", featured: true, isNew: true, icon: ICONS.medal, tint: "#f3ece7", colorSuggestions: COLOR_SUGGESTIONS.basic, desc: "Peça exclusiva para campanhas do tipo 'Método das 100 Primeiras', pensada para gerar urgência e engajamento." },
+  { id: 4, slug: "brinde-corporativo-premium", name: "Brinde Corporativo Premium", category: "corporativo", price: 14.9, minQty: 50, badge: "", featured: true, isNew: false, icon: ICONS.building, tint: "#e8eef3", colorSuggestions: COLOR_SUGGESTIONS.basic, desc: "Acessório personalizado para eventos e ações corporativas, com acabamento premium e embalagem individual." },
+  { id: 5, slug: "chaveiro-mini-tag", name: "Chaveiro Mini Tag", category: "chaveiros", price: 5.5, minQty: 20, badge: "Novo", featured: false, isNew: true, icon: ICONS.tag, tint: "#eef2ea", colorSuggestions: COLOR_SUGGESTIONS.basic, desc: "Formato compacto e leve, perfeito para gravação de nome ou iniciais do cliente." },
+  { id: 6, slug: "kit-boas-vindas", name: "Kit Boas-Vindas", category: "kits", price: 18.9, minQty: 15, badge: "Novo", featured: false, isNew: true, icon: ICONS.sparkle, tint: "#f3ece7", colorSuggestions: COLOR_SUGGESTIONS.vivid, desc: "Conjunto de brindes para recepcionar novos clientes ou colaboradores com a cara da sua marca." },
+  { id: 7, slug: "chaveiro-fitness-personalizado", name: "Chaveiro Fitness Personalizado", category: "chaveiros", price: 6.9, minQty: 20, badge: "Mais vendido", featured: false, isNew: false, icon: ICONS.keychain, tint: "#e8eef3", colorSuggestions: COLOR_SUGGESTIONS.vivid, desc: "Desenvolvido para academias e lojas do segmento fitness, reforça a lembrança da marca a cada treino." },
+  { id: 8, slug: "brinde-personalizado-evento", name: "Brinde Personalizado para Evento", category: "brindes", price: 8.5, minQty: 30, badge: "", featured: false, isNew: false, icon: ICONS.tag, tint: "#eef2ea", colorSuggestions: COLOR_SUGGESTIONS.basic, desc: "Produzido sob demanda para feiras, lançamentos e ativações de marca." },
+  { id: 9, slug: "chaveiro-nome-gravado", name: "Chaveiro com Nome Gravado", category: "chaveiros", price: 7.5, minQty: 10, badge: "", featured: false, isNew: false, icon: ICONS.keychain, tint: "#f3ece7", colorSuggestions: COLOR_SUGGESTIONS.basic, desc: "Gravação individual do nome do cliente — ótimo para ações de fidelização ponto a ponto." },
+  { id: 10, slug: "kit-corporativo-volume", name: "Kit Corporativo Volume", category: "corporativo", price: 12.9, minQty: 100, badge: "Oferta", featured: false, isNew: false, icon: ICONS.building, tint: "#e8eef3", colorSuggestions: COLOR_SUGGESTIONS.basic, desc: "Ideal para grandes volumes corporativos, com preço reduzido por unidade a partir de 100 peças." },
+  { id: 11, slug: "chaveiro-edicao-verao", name: "Chaveiro Edição Verão", category: "lancamentos", price: 8.9, minQty: 20, badge: "Lançamento", featured: false, isNew: true, icon: ICONS.sparkle, tint: "#eef2ea", colorSuggestions: COLOR_SUGGESTIONS.vivid, desc: "Nova coleção sazonal com cores exclusivas, disponível por tempo limitado." },
+  { id: 12, slug: "brinde-colecionavel-fidelidade", name: "Brinde Colecionável Fidelidade", category: "brindes", price: 9.5, minQty: 20, badge: "Mais vendido", featured: false, isNew: false, icon: ICONS.medal, tint: "#f3ece7", colorSuggestions: COLOR_SUGGESTIONS.basic, desc: "Peça pensada para programas de fidelidade — o cliente coleciona, a marca fideliza." }
 ];
 
 const VALUE_PROPS = [
