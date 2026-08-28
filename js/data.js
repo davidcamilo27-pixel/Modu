@@ -6,7 +6,7 @@
 // ======================================================
 // CONFIGURAÇÃO CENTRAL — altere aqui o número do WhatsApp
 // ======================================================
-const WHATSAPP_NUMBER = "5511999999999"; // formato: DDI+DDD+numero, apenas dígitos
+const WHATSAPP_NUMBER = "5583921476208"; // formato: DDI+DDD+numero, apenas dígitos
 
 // Ícones (SVG inline, sem dependência externa) reaproveitados nos cards de produto
 const ICONS = {
